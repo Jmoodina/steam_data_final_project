@@ -1,4 +1,4 @@
-# Project 4 (Room 4)
+# Project 4 Team 3
 
 ### Team Members: Anthony Noreska, Eduardo Castro, Hanns Peter Princivil, and Joshua Modina
 
@@ -32,8 +32,8 @@ Build upon our existing dashboard interface to visualize the analysis results an
 
 ## Data Sets to be used: 
 
-https://steamdb.info/instantsearch/
-https://steamdb.info/charts/
-https://steamdb.info/stats/gameratings/
-Steamapi.xpaw.me
+- https://steamdb.info/instantsearch/
+- https://steamdb.info/charts/
+- https://steamdb.info/stats/gameratings/
+- Steamapi.xpaw.me
 
