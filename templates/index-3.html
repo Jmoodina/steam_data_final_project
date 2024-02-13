@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Stream Data Visualization</title>
+		
+		<link rel="icon" type="image/x-icon" href="/static/img/favicon.png" />
+		
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" rel="stylesheet" />
+        <link href="/static/css/styles.css" rel="stylesheet" />
+        <link href="/static/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+		
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+		<script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+    </head>
+    <body class="nav-fixed">
+        <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+            <!-- Sidenav Toggle Button-->
+            <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i data-feather="menu"></i></button>
+            <!-- Navbar Brand-->
+			<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="{{ url_for('index') }}">UofT SCS</a>           
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sidenav shadow-right sidenav-light">
+                    <div class="sidenav-menu">
+                        <div class="nav accordion" id="accordionSidenav">
+                            <!-- Sidenav Menu Heading (Account)-->
+                            <div class="sidenav-menu-heading d-sm-none"></div>
+                                              
+                            <!-- Sidenav Menu Heading (Core)-->
+                              <div class="sidenav-menu-heading">Main</div>
+                            <!-- Sidenav Accordion (Dashboard)-->
+                            <a class="nav-link" href="{{ url_for('index') }}" target="_blank">
+                                <div class="nav-link-icon"><i data-feather="home"></i></div>
+                                Home
+                            </a>
+							
+							 <a class="nav-link" href="{{ url_for('index_1') }}" target="_blank">
+                                <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                                Project 4 - Final
+                            </a>
+							
+							<a class="nav-link" href="{{ url_for('index_2') }}" target="_blank">
+								<div class="nav-link-icon"><i data-feather="activity"></i></div>
+								-- leaflet.js		
+							</a>
+							
+							 <a class="nav-link" href="{{ url_for('index_3') }}" target="_blank">
+                                <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                                Project 3 - Dashboard
+                            </a>
+							
+							<a class="nav-link" href="{{ url_for('index_4') }}" target="_blank">
+								<div class="nav-link-icon"><i data-feather="activity"></i></div>
+								-- chart.js		
+							</a>
+														
+                            <div class="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
+                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                                 
+                                </nav>
+                            </div>
+                            <!-- Sidenav Heading (Custom)-->
+                            <div class="sidenav-menu-heading">Project repos</div>
+							
+							<a class="nav-link" href="https://github.com/AnthonyNoreska/steam_data_final_project" target="_blank">
+								<div class="nav-link-icon"><i data-feather="github"></i></div>
+								Project 4
+							</a>
+                  
+                          <a class="nav-link" href="https://github.com/AnthonyNoreska/SteamDataVisualization-" target="_blank">
+								<div class="nav-link-icon"><i data-feather="github"></i></div>
+								Project 3
+							</a>
+               
+							 <a class="nav-link" href="https://github.com/hxp-pxh/Crowdfunding_ETL/tree/main" target="_blank">
+								<div class="nav-link-icon"><i data-feather="github"></i></div>
+								Project 2
+							</a>
+							
+							<a class="nav-link" href="https://github.com/AnthonyNoreska/flight-delay-analysis" target="_blank">
+								<div class="nav-link-icon"><i data-feather="github"></i></div>
+								Project 1
+							</a>
+
+						                                                       
+                        </div>
+                    </div>
+                    <!-- Sidenav Footer-->
+                    <div class="sidenav-footer">
+                        
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+
+                    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+                        <div class="container-xl px-4">
+                            <div class="page-header-content pt-4">
+                                <div class="row align-items-center justify-content-between">
+                                    <div class="col-auto mt-4">
+                                        <h1 class="page-header-title">
+                                            <div class="page-header-icon"><i data-feather="bar-chart"></i></div>
+                                            Stream Data Visualization
+                                        </h1>
+                                        <div class="page-header-subtitle">Interactive charts to display our data, powered by ploty.js & datatables.js</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+					
+                    <!-- Main page content-->
+                    <div class="container-xl px-4 mt-n10">
+                        <!-- Area chart example-->
+                        <div class="card mb-4">
+                            <div class="card-header">
+								<!-- Dropdown Menu -->
+								 <div class="dropdown">
+								   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Select an Option
+									</button>
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item" href="javascript:void(0)" data-value="top10gamespercountry">Top 10 per Country</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="genrereview">Genre Review Ratios</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="genre_totals">Genre Totals</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="ccu_ratio">CCU Ratio</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="adventure">Adventure Games</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="action">Action Games</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="indie">Indie Games</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="rpg">RPG Games</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="simulation">Simulation Games</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="sports">Sports Games</a>
+										<a class="dropdown-item" href="javascript:void(0)" data-value="strategy">Strategy Games</a>
+									</div>
+								</div>			
+							</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <!-- Bar chart example-->
+                                <div class="card mb-4">
+                                    <div class="card-header">Chart</div>
+                                    <div class="card-body">
+                                        <div id="myPlotlyChart" style="width:100%;height:100%;" ></div>
+                                    </div>
+                                    <div class="card-footer small text-muted"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <!-- Pie chart example-->
+                                <div class="card mb-4">
+                                    <div class="card-header">Description</div>
+                                    <div class="card-body">
+                                        <div class="chart-pie pt-4 pb-2">
+                                    </div>
+                                </div>
+								<div class="card-footer small text-muted"></div>
+                            </div>
+                        </div>
+                        	<!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4"></p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 id="tableTitle" class="m-0 font-weight-bold text-primary">DataTables</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                               <table id="dataTable" class="table table-bordered">
+									<thead>
+										<tr>
+											<th> </th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Data will be dynamically inserted here by DataTables -->
+									</tbody>
+								</table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+                </main>
+                <footer class="footer-admin mt-auto footer-white">
+                    <div class="container-xl px-4">
+                        <div class="row">
+                            <div class="col-md-6 small">Copyright &copy; UTOR-VIRT-DATA-PT-08-2023-U-LOLC-MTTH(B) - Project 4</div>
+                            <div class="col-md-6 text-md-end small">2023-2024</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+		
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top">
+			<i class="fas fa-angle-up"></i>
+		</a>
+			
+			<!-- Bootstrap core JavaScript-->
+			<script src="/static/js/jquery.min.js"></script>
+			<script src="/static/js/bootstrap.bundle.min.js"></script>
+			<script src="/static/js/script.js"></script>
+			<script src="/static/js/scripts.js"></script>
+			<script src="/static/js/jquery.dataTables.min.js"></script>
+			<script src="/static/js/dataTables.bootstrap4.min.js"></script>	
+			<script src="/static/js/litepicker.js"></script>
+			
+    </body>
+</html>

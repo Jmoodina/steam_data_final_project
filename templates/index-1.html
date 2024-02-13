@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Steam Data - Final Project</title>
+        <link href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" rel="stylesheet" />
+        <link href="/static/css/styles.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="/static/img/favicon.png" />
+        <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
+    </head>
+	
+	<body class="nav-fixed">
+        <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+            <!-- Sidenav Toggle Button-->
+            <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i data-feather="menu"></i></button>
+            <!-- Navbar Brand-->
+			<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="{{ url_for('index') }}">UofT SCS</a>         
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sidenav shadow-right sidenav-light">
+                    <div class="sidenav-menu">
+                        <div class="nav accordion" id="accordionSidenav">
+                            <!-- Sidenav Menu Heading (Account)-->
+                            <div class="sidenav-menu-heading d-sm-none"></div>
+                                              
+                             <div class="sidenav-menu-heading">Main</div>
+                            <!-- Sidenav Accordion (Dashboard)-->
+                            <a class="nav-link" href="{{ url_for('index') }}" target="_blank">
+                                <div class="nav-link-icon"><i data-feather="home"></i></div>
+                                Home
+                            </a>
+							
+							 <a class="nav-link" href="{{ url_for('index_1') }}" target="_blank">
+                                <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                                Project 4 - Final
+                            </a>
+							
+							<a class="nav-link" href="{{ url_for('index_2') }}" target="_blank">
+								<div class="nav-link-icon"><i data-feather="activity"></i></div>
+								-- leaflet.js		
+							</a>
+							
+							 <a class="nav-link" href="{{ url_for('index_3') }}" target="_blank">
+                                <div class="nav-link-icon"><i data-feather="activity"></i></div>
+                                Project 3 - Dashboard
+                            </a>
+							
+							<a class="nav-link" href="{{ url_for('index_4') }}" target="_blank">
+								<div class="nav-link-icon"><i data-feather="activity"></i></div>
+								-- chart.js		
+							</a>
+														
+                            <div class="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
+                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                                 
+                                </nav>
+                            </div>
+                            <!-- Sidenav Heading (Custom)-->
+                            <div class="sidenav-menu-heading">Project repos</div>
+							
+							<a class="nav-link" href="https://github.com/AnthonyNoreska/steam_data_final_project" target="_blank">
+								<div class="nav-link-icon"><i data-feather="github"></i></div>
+								Project 4
+							</a>
+                  
+                          <a class="nav-link" href="https://github.com/AnthonyNoreska/SteamDataVisualization-" target="_blank">
+								<div class="nav-link-icon"><i data-feather="github"></i></div>
+								Project 3
+							</a>
+               
+							 <a class="nav-link" href="https://github.com/hxp-pxh/Crowdfunding_ETL/tree/main" target="_blank">
+								<div class="nav-link-icon"><i data-feather="github"></i></div>
+								Project 2
+							</a>
+							
+							<a class="nav-link" href="https://github.com/AnthonyNoreska/flight-delay-analysis" target="_blank">
+								<div class="nav-link-icon"><i data-feather="github"></i></div>
+								Project 1
+							</a>
+
+						                                                       
+                        </div>
+                    </div>
+                    <!-- Sidenav Footer-->
+                    <div class="sidenav-footer">
+                        
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+
+                    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+                        <div class="container-xl px-4">
+                            <div class="page-header-content pt-4">
+                                <div class="row align-items-center justify-content-between">
+                                    <div class="col-auto mt-4">
+                                        <h1 class="page-header-title">
+                                            <div class="page-header-icon"><i data-feather="bar-chart"></i></div>
+                                            Steam Data - Final Project
+                                        </h1>
+                                        <div class="page-header-subtitle">Cleaning and Machine Learning, powered by Jupyter Notebook</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+					
+                    <!-- Main page content-->
+                    <div class="container-xl px-4 mt-n10">                     
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!-- Bar chart example-->
+                                <div class="card mb-4">
+                                    <div class="card-header">Jupyter Notebook</div>
+                                    <div class="card-body">
+                                
+											<div>
+												<iframe src="{{ url_for('index_1n') }}" width="100%" height="24200px" scrolling="no"></iframe>
+											</div>                                         
+                                        
+                                    </div>
+                                    <div class="card-footer small text-muted"></div>
+                                </div>
+                            </div>                         
+                        </div>
+					</div>
+					
+                </main>
+                <footer class="footer-admin mt-auto footer-white">
+                    <div class="container-xl px-4">
+                        <div class="row">
+                            <div class="col-md-6 small">Copyright &copy; UTOR-VIRT-DATA-PT-08-2023-U-LOLC-MTTH(B) - Project 4</div>
+                            <div class="col-md-6 text-md-end small">2023-2024</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+		
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top">
+			<i class="fas fa-angle-up"></i>
+		</a>
+			
+			<!-- Bootstrap core JavaScript-->
+			<script src="/static/js/jquery.min.js"></script>
+			<script src="/static/js/bootstrap.bundle.min.js"></script>
+			<script src="/static/js/script.js"></script>
+			<script src="/static/js/scripts.js"></script>
+			<script src="/static/js/jquery.dataTables.min.js"></script>
+			<script src="/static/js/dataTables.bootstrap4.min.js"></script>	
+			<script src="/static/js/litepicker.js"></script>
+			<script src="/static/js/script2.js"></script>
+			
+    </body>
+</html>
